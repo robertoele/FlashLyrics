@@ -1,5 +1,6 @@
 package com.robertoele.FlashLyrics;
 
+import com.robertoele.FlashLyrics.entities.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,8 +19,7 @@ public class FlashLyricsApplication {
 
 	@Bean
 	CommandLineRunner commandLineRunner() {
-		return _ -> {
-			System.out.println(service.getByNameAndArtist("Engel", "Rammstein").getPlainLyrics());
-		};
+		Song ascheZuAsche = service.getByNameAndArtistOnline("Asche zu Asche", "Rammstein");
+		return _ -> System.out.println(ascheZuAsche.getPlainLyrics());
 	}
 }

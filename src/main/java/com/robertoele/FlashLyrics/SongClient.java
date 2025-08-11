@@ -14,4 +14,12 @@ public class SongClient {
     public Song[] requestSongsByName(String name) {
         return template.getForObject(BASE_URL + "track_name=" + name, Song[].class);
     }
+
+    public Song[] requestSongsByArtist(String artistName) {
+        return template.getForObject(BASE_URL + "artist_name" + artistName, Song[].class);
+    }
+
+    public Song[] requestSongsByNameAndArtist(String name, String artistName) {
+        return template.getForObject(BASE_URL + "track_name=" + name + "&artist_name=" + artistName, Song[].class);
+    }
 }
