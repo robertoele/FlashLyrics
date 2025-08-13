@@ -7,12 +7,14 @@ import { Song } from '../entities/song';
   imports: [],
   template: `
     <p>home works!</p>
+    <div contenteditable="true">{{this.songName}}</div>
   `,
   styleUrl: './home.css'
 })
 @Injectable({providedIn: 'root'})
 export class Home {
   private client: HttpClient = inject(HttpClient);
+  songName: String = "";
   songs: Song[] = [];
    song: Song | undefined;
 
