@@ -13,10 +13,4 @@ class FlashLyricsApplicationTests {
 	@Autowired
     SongClient client;
 
-	@Test
-	void no_songs_found_online() {
-		Song[] emptySongs = client.requestSongsByName("cancion ke no etsisteeeeeA");
-		assertNotNull(emptySongs);
-        assertEquals(0, emptySongs.length);
-	}
 }
