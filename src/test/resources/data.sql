@@ -1,0 +1,3 @@
+insert into Song (id, name, track_name, artist_name, album_name, duration, instrumental, plain_lyrics, synced_lyrics)
+values (0, 'Sehnsucht', 'Sehnsucht', 'Rammstein', 'Sehnsucht', 325, false, 'Lass mich deine Träne reiten', 'Lass mich deine Träne reiten');
+                                                                                                                                                                                                                                                                                                                                                                                       ")

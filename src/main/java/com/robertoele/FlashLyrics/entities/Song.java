@@ -10,21 +10,21 @@ public class Song {
       private Long id;
       @Column(name = "name")
       private String name;
-      @Column(name = "trackName")
+      @Column(name = "track_name")
       private String trackName;
-      @Column(name = "artistName")
+      @Column(name = "artist_name")
       private String artistName;
-      @Column(name = "albumName")
+      @Column(name = "album_name")
       private String albumName;
-      @Column(name = "ration")
+      @Column(name = "duration")
       private Long duration;
       @Column(name = " instrumental")
       private boolean instrumental;
       @Lob
-      @Column(name = "plainLyrics", length = 1024)
+      @Column(name = "plain_lyrics", length = 1024)
       private String plainLyrics;
       @Lob
-      @Column(name = "syncedLyrics", length = 1024)
+      @Column(name = "synced_lyrics", length = 1024)
       private String syncedLyrics;
 
       protected Song() {}
