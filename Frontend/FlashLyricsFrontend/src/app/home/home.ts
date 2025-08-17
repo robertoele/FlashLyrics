@@ -2,19 +2,20 @@ import { Component, Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Song } from '../entities/song';
 import { FormsModule } from '@angular/forms';
-import { SourceTextModule } from 'vm';
-import { SongDetails } from '../song-details/song-details';
+import { SongDetails } from '../song-article/song-article';
 
 @Component({
   selector: 'app-home',
   imports: [FormsModule, SongDetails],
   template: `
-    <p>home works!</p>
-    <p>Song name: <input id="songName" type="text" [(ngModel)]="songName"/></p>
-    <p>Artist: <input id="artist" type="text" [(ngModel)]="artist"/></p>
+
+    <p>Song name</p>
+    <input id="songName" type="text" [(ngModel)]="songName"/>
+    <p>Artist</p>
+    <input id="artist" type="text" [(ngModel)]="artist"/>
     <button id="confirm" type="button" (click)="findSong()">Buscar</button>
     @for(song of songs; track song.id) {
-      <song-details [song]="song"/>
+      <song-article [song]="song"/>
     }
   `,
   styleUrl: './home.css'

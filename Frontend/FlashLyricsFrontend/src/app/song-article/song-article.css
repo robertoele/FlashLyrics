@@ -1,0 +1,15 @@
+.song {
+    background: var(--accent-color);
+    border-radius: 30px;
+}
+.song-heading {
+  color: var(--primary-color);
+  padding: 0px 0px 0 20px;
+}
+.song-id {
+  color: var(--primary-color);
+  padding: 10px 0px 0px 20px;
+}
+.song-artist {
+    padding: 10px 20px 20px 20px;
+}
