@@ -1,6 +1,8 @@
-package com.robertoele.FlashLyrics;
+package com.robertoele.FlashLyrics.services;
 
+import com.robertoele.FlashLyrics.clients.SongClient;
 import com.robertoele.FlashLyrics.entities.Song;
+import com.robertoele.FlashLyrics.repositories.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

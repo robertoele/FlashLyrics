@@ -1,4 +1,4 @@
-package com.robertoele.FlashLyrics;
+package com.robertoele.FlashLyrics.clients;
 
 
 import com.robertoele.FlashLyrics.entities.Song;

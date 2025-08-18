@@ -1,7 +1,7 @@
-package com.robertoele.FlashLyrics;
+package com.robertoele.FlashLyrics.rest;
 
 import com.robertoele.FlashLyrics.entities.Song;
-import org.apache.coyote.Response;
+import com.robertoele.FlashLyrics.services.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

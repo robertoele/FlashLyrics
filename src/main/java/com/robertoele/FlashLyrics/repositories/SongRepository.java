@@ -1,4 +1,4 @@
-package com.robertoele.FlashLyrics;
+package com.robertoele.FlashLyrics.repositories;
 
 import com.robertoele.FlashLyrics.entities.Song;
 import org.springframework.data.repository.CrudRepository;
