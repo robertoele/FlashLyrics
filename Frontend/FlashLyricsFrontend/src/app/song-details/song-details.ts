@@ -30,10 +30,9 @@ export class SongDetails {
   saveSongCards() {
     var songCards = this.song?.plainLyrics.split("\n") || [];
     if(typeof this.song !== 'undefined') {
-      var cards = songCards.map(lyrics => new SongCard(this.song!!, lyrics));
-      console.log(JSON.stringify(songCards));
+      var cards = songCards.filter(lyrics => lyrics.length !== 0).map(lyrics => new SongCard(this.song!!, lyrics));
       this.client.post<SongCard[]>(this.base_url + "/songs/" + this.songId, cards).subscribe(coso => {
-        console.log("JKhkjasdjkhda");
+        
       });
     }
   }

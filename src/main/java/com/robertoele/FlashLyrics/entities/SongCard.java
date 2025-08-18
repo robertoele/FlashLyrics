@@ -8,10 +8,9 @@ public class SongCard {
 
     protected SongCard() {}
 
-    public SongCard(Long id, Song song, Long songId, String lyrics, String translation) {
+    public SongCard(Long id, Song song, String lyrics, String translation) {
         this.id = id;
         this.song = song;
-        this.songId = songId;
         this.lyrics = lyrics;
         this.translation = translation;
     }
@@ -20,12 +19,10 @@ public class SongCard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JoinColumn(name="song_id", insertable = false, updatable = false)
-    @ManyToOne(targetEntity = Song.class, fetch = FetchType.EAGER)
+    @JoinColumn(name="song")
+    @ManyToOne
     private Song song;
 
-    @Column(name="song_id")
-    private Long songId;
     private String lyrics;
     private String translation;
 
