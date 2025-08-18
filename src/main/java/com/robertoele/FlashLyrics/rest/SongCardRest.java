@@ -19,7 +19,7 @@ public class SongCardRest {
     @Autowired
     private SongRepository songRepository;
     @GetMapping("/songs/{songId}/cards")
-    ResponseEntity<SongCard[]>findSongCards(@RequestParam Long songId) {
+    ResponseEntity<SongCard[]>findSongCards(@PathVariable Long songId) {
         SongCard[] cards = songCardRepository.findAllBySongId(songId);
         if(cards.length == 0) return ResponseEntity.notFound().build();
         else return ResponseEntity.ok(cards);
