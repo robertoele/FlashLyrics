@@ -2,11 +2,11 @@ import { Component, Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Song } from '../entities/song';
 import { FormsModule } from '@angular/forms';
-import { SongDetails } from '../song-article/song-article';
+import { SongArticle } from '../song-article/song-article';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule, SongDetails],
+  imports: [FormsModule, SongArticle],
   template: `
 
     <p>Song name</p>

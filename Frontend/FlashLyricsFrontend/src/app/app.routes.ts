@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router";
 import { Home } from "./home/home";
-import { SongDetails } from "./song-article/song-article";
+import { SongDetails } from "./song-details/song-details";
 
 const routeConfig: Routes = [
     {
