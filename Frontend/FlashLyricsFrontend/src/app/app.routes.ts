@@ -9,7 +9,7 @@ const routeConfig: Routes = [
         title: 'Página de inicio'
     },
     {
-        path: 'song/:id',
+        path: 'songs/:id',
         component: SongDetails,
         title: 'Detalles de la canción'
     }

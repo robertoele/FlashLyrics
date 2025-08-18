@@ -1,12 +1,10 @@
 package com.robertoele.FlashLyrics;
 
 import com.robertoele.FlashLyrics.entities.Song;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -25,5 +23,13 @@ public class SongRest {
         if(songs == null || songs.length == 0) songs = service.getByNameAndArtistOnline(name, artistName);
         if(songs == null || songs.length == 0) return ResponseEntity.notFound().build();
         return ResponseEntity.ok(songs);
+    }
+
+    @GetMapping("/songs/{id}")
+    public ResponseEntity<Song> findSong(@PathVariable Long id) {
+        if(id == null) return ResponseEntity.badRequest().build();
+        Song foundSong = service.getByIdLocal(id).orElse(service.getByIdOnline(id));
+        if(foundSong == null) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(foundSong);
     }
 }

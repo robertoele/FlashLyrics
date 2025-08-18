@@ -4,6 +4,8 @@ import com.robertoele.FlashLyrics.entities.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class SongService {
 
@@ -12,6 +14,14 @@ public class SongService {
 
     public Song[] getByNameAndArtistLocal(String name, String artist) {
         return repository.getByNameAndArtistName(name, artist);
+    }
+
+    public Optional<Song> getByIdLocal(Long id) {
+        return repository.findById(id);
+    }
+
+    public Song getByIdOnline(Long id) {
+        return client.requestSongById(id);
     }
 
     public Song[] getByNameAndArtistOnline(String name, String artistName) {

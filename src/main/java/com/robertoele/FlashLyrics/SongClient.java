@@ -15,4 +15,9 @@ public class SongClient {
         if(artistName != null && name == null) return template.getForObject(BASE_URL + "q=" + artistName + "&artist_name=" + artistName, Song[].class);
         return template.getForObject(BASE_URL + "track_name=" + name + "&artist_name=" + artistName, Song[].class);
     }
+
+    public Song requestSongById(Long id) {
+        String ID_URL = "https://lrclib.net/api/get/";
+        return template.getForObject(ID_URL + id, Song.class);
+    }
 }
