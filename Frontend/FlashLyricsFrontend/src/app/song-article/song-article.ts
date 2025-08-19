@@ -12,8 +12,8 @@ import { RouterModule } from '@angular/router';
       <h2 class="song-heading">{{this.song().name}}</h2>
       <p class="song-artist">{{this.song().artistName}}</p>
     </div>
-    <button><a [routerLink]="['/songs', this.song().id]">View</a></button>
-    <button>Edit</button>
+    <button [routerLink]="['/songs', song().id]">View</button>
+    <button [routerLink]="['/songs', song().id, 'edit']">Edit</button>
   </article>
   `,
   styleUrl: './song-article.css'
