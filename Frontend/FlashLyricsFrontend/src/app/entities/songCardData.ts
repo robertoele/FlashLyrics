@@ -10,7 +10,7 @@ export class SongCardData {
         this.id = id;
         this.song = song;
         this.lyrics = lyrics;
-        this.translation = "No translations yet";
+        this.translation = "No translation yet";
     }
 }
 
@@ -22,6 +22,6 @@ export class SongCardSent {
     constructor(song: Song, lyrics: string) {
         this.song = song;
         this.lyrics = lyrics;
-        this.translation = "No translations yet";
+        this.translation = "No translation yet";
     }
 }
