@@ -1,0 +1,27 @@
+.songList {
+    border: 1px solid #555;
+    background-color: #2c2c2c;
+    margin: auto;
+}
+
+.card-row {
+    border-bottom: 1px solid #3c3c3c;
+    padding: 18px;
+}
+
+.card-row .title {
+  flex-grow: 1;
+}
+
+.add-song-button {
+  --_viewport-margin: 2.5vmin;
+  position: fixed;
+  z-index: var(--layer-1);
+
+  inset-block: auto var(--_viewport-margin);
+  inset-inline: auto var(--_viewport-margin);
+  display: flex;
+  flex-direction: column-reverse;
+  place-items: center;
+  gap: var(--_viewport-margin);
+}

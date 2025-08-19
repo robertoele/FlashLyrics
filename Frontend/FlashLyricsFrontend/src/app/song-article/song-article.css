@@ -1,6 +1,7 @@
 .song {
     background: var(--accent-color);
     border-radius: 30px;
+    display: flex;
 }
 .song-heading {
   color: var(--primary-color);
