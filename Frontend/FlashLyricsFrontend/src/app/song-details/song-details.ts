@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Song } from '../entities/song';
@@ -7,18 +7,7 @@ import { SongCard } from '../song-card/song-card';
 @Component({
   selector: 'song-details',
   imports: [SongCard],
-  template: `
-    <h1>{{song?.name}}</h1>
-    <h2>{{song?.artistName}}</h2>
-    <button (click)="saveSongCards()">Guardar</button>
-    @if(this.cards.length <= 0) {
-      <h1 class="lyrics">{{song?.plainLyrics}}</h1>
-    } @else {
-      @for(card of this.cards; track card.id) { 
-        <song-card [data]="card"/> 
-      }
-    }
-  `,
+  templateUrl: 'song-details.html',
   styleUrl: './song-details.css'
 })
 export class SongDetails {
@@ -44,7 +33,6 @@ export class SongDetails {
     if(typeof this.song !== 'undefined') {
       var cards = songCards.filter(lyrics => lyrics.length !== 0).map(lyrics => new SongCardSent(this.song!!, lyrics));
       this.client.post<SongCardData[]>(this.base_url + "/songs/" + this.songId, cards).subscribe(coso => {
-        
       });
     }
   }

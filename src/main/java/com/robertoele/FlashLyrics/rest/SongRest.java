@@ -15,9 +15,11 @@ public class SongRest {
 
     @GetMapping("/songs")
     public ResponseEntity<Song[]> findSongs(
+            @RequestParam(required = false, defaultValue = "false") boolean local,
             @RequestParam(required = false) String name,
             @RequestParam(name = "artist_name", required = false) String artistName
     ) {
+        if(local) return ResponseEntity.ok(service.getAllLocal().toArray(new Song[0]));
         if(name == null && artistName == null) return ResponseEntity.badRequest().build();
         Song[] songs = service.getByNameAndArtistLocal(name, artistName);
         if(songs == null || songs.length == 0) songs = service.getByNameAndArtistOnline(name, artistName);

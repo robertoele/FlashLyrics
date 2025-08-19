@@ -1,0 +1,9 @@
+<h1>FlashLyrics</h1>
+<p>Song name</p>
+<input id="songName" type="text" [(ngModel)]="songName"/>
+<p>Artist</p>
+<input id="artist" type="text" [(ngModel)]="artist"/>
+<button id="confirm" type="button" (click)="findSong()">Buscar</button>
+@for(song of songs; track song.id) {
+    <song-article [song]="song"/>
+}
