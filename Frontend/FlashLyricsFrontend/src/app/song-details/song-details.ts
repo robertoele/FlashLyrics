@@ -8,6 +8,8 @@ import { SongCard } from '../song-card/song-card';
   selector: 'song-details',
   imports: [SongCard],
   template: `
+    <h1>{{song?.name}}</h1>
+    <h2>{{song?.artistName}}</h2>
     <button (click)="saveSongCards()">Guardar</button>
     @if(this.cards.length <= 0) {
       <h1 class="lyrics">{{song?.plainLyrics}}</h1>

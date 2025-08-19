@@ -4,4 +4,15 @@
     height: max-content;
     min-height: 100px;
     margin: auto;
+    border: 1px solid #666;
+    background: #3c3c3c;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    margin-top: 5px;
+}
+
+.text {
+    color: white;
+    line-height: 100px;
 }
