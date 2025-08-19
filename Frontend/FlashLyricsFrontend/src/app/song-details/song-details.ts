@@ -2,14 +2,19 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Song } from '../entities/song';
-import { SongCard, SongCardSent } from '../entities/songCard';
+import { SongCardData, SongCardSent } from '../entities/songCardData';
+import { SongCard } from '../song-card/song-card';
 @Component({
   selector: 'song-details',
-  imports: [],
+  imports: [SongCard],
   template: `
     <button (click)="saveSongCards()">Guardar</button>
-    @for(card of this.cards; track card.id) {
-      <h1 class="lyrics">{{card.lyrics}}</h1>
+    @if(this.cards.length <= 0) {
+      <h1 class="lyrics">{{song?.plainLyrics}}</h1>
+    } @else {
+      @for(card of this.cards; track card.id) { 
+        <song-card [data]="card"/> 
+      }
     }
   `,
   styleUrl: './song-details.css'
@@ -20,14 +25,14 @@ export class SongDetails {
   client: HttpClient = inject(HttpClient);
   songId = -1;
   song: Song | undefined;
-  cards: SongCard[] = [];
+  cards: SongCardData[] = [];
 
   constructor() {
     this.songId = parseInt(this.route.snapshot.params['id'], 10);
     this.client.get<Song>(this.base_url + "/songs/" + this.songId).subscribe(foundSong => {
       this.song = foundSong;
     });
-    this.client.get<SongCard[]>(this.base_url + "/songs/" + this.songId + "/cards").subscribe(cards => {
+    this.client.get<SongCardData[]>(this.base_url + "/songs/" + this.songId + "/cards").subscribe(cards => {
       this.cards = cards;
     });
   }
@@ -36,7 +41,7 @@ export class SongDetails {
     var songCards = this.song?.plainLyrics.split("\n") || [];
     if(typeof this.song !== 'undefined') {
       var cards = songCards.filter(lyrics => lyrics.length !== 0).map(lyrics => new SongCardSent(this.song!!, lyrics));
-      this.client.post<SongCard[]>(this.base_url + "/songs/" + this.songId, cards).subscribe(coso => {
+      this.client.post<SongCardData[]>(this.base_url + "/songs/" + this.songId, cards).subscribe(coso => {
         
       });
     }

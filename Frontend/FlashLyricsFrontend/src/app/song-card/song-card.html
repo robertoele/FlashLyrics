@@ -1,0 +1,7 @@
+<div class="container" (click)="toggleFlip()">
+    @if(this.flip) {
+        <div>{{this.data().translation}}</div>
+    } @else {
+        <div>{{this.data().lyrics}}</div>
+    }
+</div>

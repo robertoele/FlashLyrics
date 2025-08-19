@@ -1,0 +1,7 @@
+.container {
+    position: relative;
+    width: 200px;
+    height: max-content;
+    min-height: 100px;
+    margin: auto;
+}

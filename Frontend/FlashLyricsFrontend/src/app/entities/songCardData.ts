@@ -1,6 +1,6 @@
 import { Song } from "./song";
 
-export class SongCard {
+export class SongCardData {
     id: number;
     song: Song;
     lyrics: string;
@@ -10,7 +10,7 @@ export class SongCard {
         this.id = id;
         this.song = song;
         this.lyrics = lyrics;
-        this.translation = "";
+        this.translation = "No translations yet";
     }
 }
 
@@ -22,6 +22,6 @@ export class SongCardSent {
     constructor(song: Song, lyrics: string) {
         this.song = song;
         this.lyrics = lyrics;
-        this.translation = "";
+        this.translation = "No translations yet";
     }
 }
