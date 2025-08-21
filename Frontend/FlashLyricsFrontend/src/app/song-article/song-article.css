@@ -2,10 +2,29 @@
     background: var(--accent-color);
     border-radius: 30px;
     display: flex;
+    align-items: center;
+    margin: 15px;
 }
 .song-heading {
   color: var(--primary-color);
   padding: 0px 0px 0 20px;
+}
+.song-column {
+  padding: 18px;
+}
+.song-column.data {
+  flex-grow: 1;
+}
+.song-column.buttons button{
+  text-decoration: none;
+  font-size: 12px;
+  padding: 6px 8px 4px;
+  background-color: #393939;
+  margin: 5px;
+  outline: 1px solid #666;
+}
+.song-column.buttons button:hover {
+  filter: brightness(115%);
 }
 .song-id {
   color: var(--primary-color);
