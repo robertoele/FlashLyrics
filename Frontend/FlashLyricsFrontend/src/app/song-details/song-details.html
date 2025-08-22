@@ -1,8 +1,8 @@
 <h1>{{song?.name}}</h1>
 <h2>{{song?.artistName}}</h2>
-<button (click)="saveSongCards()">Guardar</button>
 @if(this.cards.length <= 0) {
     <h1 class="lyrics">{{song?.plainLyrics}}</h1>
+    <button (click)="saveSongCards()">Guardar canción</button>
 } @else {
     @for(card of this.cards; track card.id) {
     <song-card [data]="card"/> 

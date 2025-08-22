@@ -2,6 +2,7 @@ import { Routes } from "@angular/router";
 import { Home } from "./home/home";
 import { SongDetails } from "./song-details/song-details";
 import { SongEditing } from "./song-editing/song-editing";
+import { SearchSong } from "./search-song/search-song";
 
 const routeConfig: Routes = [
     {
@@ -18,6 +19,11 @@ const routeConfig: Routes = [
         path: 'songs/:id',
         component: SongDetails,
         title: 'Detalles de la canción'
+    },
+    {
+        path: 'search',
+        component: SearchSong,
+        title: 'Buscar canción'
     }
 
 ]

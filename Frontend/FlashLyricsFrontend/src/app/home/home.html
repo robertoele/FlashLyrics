@@ -3,7 +3,6 @@
     <div class="card-row title">Current Songs</div>
     @for(song of songs; track song.id) {
         <song-article [song]="song"/>
-        <song-article [song]="song"/>
     }
-    <div class="add-song-button"><button>Add Song</button></div>
 </div>
+<button [routerLink]="['/search']">Add Song</button>

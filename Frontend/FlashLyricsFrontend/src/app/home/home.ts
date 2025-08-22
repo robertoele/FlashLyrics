@@ -3,10 +3,11 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Song } from '../entities/song';
 import { FormsModule } from '@angular/forms';
 import { SongArticle } from '../song-article/song-article';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule, SongArticle],
+  imports: [FormsModule, SongArticle, RouterLink],
   templateUrl: 'home.html',
   styleUrl: './home.css'
 })

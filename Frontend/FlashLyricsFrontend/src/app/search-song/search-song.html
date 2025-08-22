@@ -1,0 +1,8 @@
+<label for="name">Nombre</label>
+<input type="text" id="name" [(ngModel)]="name" name="name"/>
+<label for="artist">Artista</label>
+<input type="text" id="artist" [(ngModel)]="artist" name="artist"/>
+<button (click)="searchSong()">Buscar</button>
+@for (item of songs; track item.id) {
+    <song-article [song]="item"/>
+}
