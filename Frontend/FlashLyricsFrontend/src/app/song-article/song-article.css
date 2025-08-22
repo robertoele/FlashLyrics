@@ -1,12 +1,14 @@
+article {
+    border: solid 1px var(--primary-color);
+}
 .song {
-    background: var(--accent-color);
     border-radius: 30px;
     display: flex;
     align-items: center;
+    color: var(--on-surface);
     margin: 15px;
 }
-.song-heading {
-  color: var(--primary-color);
+.song.heading {
   padding: 0px 0px 0 20px;
 }
 .song-column {
@@ -15,14 +17,6 @@
 .song-column.data {
   flex-grow: 1;
 }
-.song-column.buttons button{
-  text-decoration: none;
-  font-size: 12px;
-  padding: 6px 8px 4px;
-  background-color: #393939;
-  margin: 5px;
-  outline: 1px solid #666;
-}
 .song-column.buttons button:hover {
   filter: brightness(115%);
 }
@@ -30,6 +24,6 @@
   color: var(--primary-color);
   padding: 10px 0px 0px 20px;
 }
-.song-artist {
+.song.artist {
     padding: 10px 20px 20px 20px;
 }

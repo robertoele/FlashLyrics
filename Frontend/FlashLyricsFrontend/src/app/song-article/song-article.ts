@@ -8,13 +8,12 @@ import { RouterModule } from '@angular/router';
   template: `
   <article class="song">
     <div class="song-column data">
-      <h3 class="song-id">{{this.song().id}}</h3>
-      <h2 class="song-heading">{{this.song().name}}</h2>
-      <p class="song-artist">{{this.song().artistName}}</p>
+      <h2 class="song heading">{{this.song().name}}</h2>
+      <p class="song artist">{{this.song().artistName}}</p>
     </div>
     <div class="song-column buttons">
-      <button [routerLink]="['/songs', song().id]">View</button>
-      <button [routerLink]="['/songs', song().id, 'edit']">Edit</button>
+      <button class="primary" [routerLink]="['/songs', song().id]">View</button>
+      <button class="primary" [routerLink]="['/songs', song().id, 'edit']">Edit</button>
     </div>
   </article>
   `,
