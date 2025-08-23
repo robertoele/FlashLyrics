@@ -1,0 +1,13 @@
+label {
+    color: var(--on-surface);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.form * {
+    margin-top: 10px;
+}

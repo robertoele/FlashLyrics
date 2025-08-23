@@ -1,8 +1,11 @@
-<label for="name">Nombre</label>
-<input type="text" id="name" [(ngModel)]="name" name="name"/>
-<label for="artist">Artista</label>
-<input type="text" id="artist" [(ngModel)]="artist" name="artist"/>
-<button (click)="searchSong()">Buscar</button>
+<div class="form">
+    <label for="name">Song name</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name"/>
+    <label for="artist">Artist</label>
+    <input type="text" id="artist" [(ngModel)]="artist" name="artist"/>
+    <button class="primary align-end" (click)="searchSong()">Find</button>
+
+</div>
 @for (item of songs; track item.id) {
     <song-article [song]="item"/>
 }

@@ -12,7 +12,3 @@
 .card-row .title {
   flex-grow: 1;
 }
-
-.align-end {
-  float: inline-end;
-}

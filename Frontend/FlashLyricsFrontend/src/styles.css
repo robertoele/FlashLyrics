@@ -28,6 +28,14 @@ div {
 
   --secondary-color: #CCC2DC;
   --on-secondary: #332D41;
+
+  --tertiary-color: #EFB8C8;
+  --on-tertiary: #492532;
+
+  --error: #F2B8B5;
+  --on-error: #601410;
+  --error-container: #8C1D18;
+  --on-error-container: #F9DEDC;
 }
 
 button.primary {
@@ -42,4 +50,29 @@ button.primary {
 
 button.primary:hover {
   filter: brightness(115%);
+}
+
+button.tertiary {
+  padding: 16px;
+  margin: 6px;
+  border: solid 1px var(--tertiary-color);
+  background: var(--tertiary-color);
+  color: var(--on-tertiary);
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+button.tertiary:hover {
+  filter: brightness(115%);
+}
+
+.align-end {
+  float: inline-end;
+}
+
+.floating-action {
+    float: inline-end;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
 }

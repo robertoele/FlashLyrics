@@ -1,0 +1,14 @@
+.container {
+    position: relative;
+    height: max-content;
+    min-height: 100px;
+    background: var(--primary-container);
+    border: 1px solid #666;
+    margin: auto;
+    margin-top: 5px;
+    width: 200px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: 0.5rem;
+}

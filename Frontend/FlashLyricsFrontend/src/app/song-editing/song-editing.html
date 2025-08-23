@@ -1,4 +1,4 @@
 @for(card of songCards; track card.id) {
     <song-card-editable [cardData]="card"/>
 }
-<button (click)="saveChanges()">Guardar Cambios</button>
+<button  class="tertiary floating-action" (click)="saveChanges()">Save Changes</button>
