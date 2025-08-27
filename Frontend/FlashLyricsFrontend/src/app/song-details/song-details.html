@@ -3,7 +3,7 @@
     <h2>{{song?.artistName}}</h2>
     @if(this.cards.length <= 0) {
         <h1 class="lyrics">{{song?.plainLyrics}}</h1>
-        <button (click)="saveSongCards()">Guardar canción</button>
+        <button class="tertiary floating-action" (click)="saveSongCards()">Save Song</button>
     } @else {
         @for(card of this.cards; track card.id) {
         <song-card [data]="card"/> 
