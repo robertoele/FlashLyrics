@@ -1,0 +1,27 @@
+services:
+  flashlyrics_app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:mysql://datos:3306/flashlyrics?createDatabaseIfNotExist=true&serverTimezone=UTC
+      DB_USERNAME: mister
+      DB_PASSWORD: 7estamism0
+    depends_on:
+      datos:
+          condition: service_healthy
+  datos:
+      image: mysql:latest
+      ports:
+        - "3307"
+        - "3306"
+      environment:
+        MYSQL_ROOT_PASSWORD: 1i1i1@1@xd
+        MYSQL_PASSWORD: 7estamism0
+        MYSQL_DATABASE: flashlyrics
+        MYSQL_USER: mister
+      restart: always
+      healthcheck:
+        test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+        timeout: 10s
+        retries: 10
