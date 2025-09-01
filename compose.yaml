@@ -1,6 +1,8 @@
 services:
   flashlyrics_app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
     environment:
@@ -25,3 +27,10 @@ services:
         test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
         timeout: 10s
         retries: 10
+  frontend:
+    build:
+      context: ./FlashLyricsFrontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "4020:4020"
