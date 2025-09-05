@@ -1,3 +1,9 @@
 .lyrics {
     white-space: pre-line;
 }
+
+img {
+    display: block;
+    margin: auto;
+    width: 10%;
+}
