@@ -13,7 +13,9 @@ import { RouterModule } from '@angular/router';
     </div>
     <div class="song-column buttons">
       <button class="primary" [routerLink]="['/songs', song().id]">View</button>
-      <button class="primary" [routerLink]="['/songs', song().id, 'edit']">Edit</button>
+      @if (edit()) {
+        <button class="primary" [routerLink]="['/songs', song().id, 'edit']">Edit</button>
+      }
     </div>
   </article>
   `,
@@ -22,4 +24,5 @@ import { RouterModule } from '@angular/router';
 
 export class SongArticle {
   song = input.required<Song>();
+  edit = input.required<Boolean>();
 }
