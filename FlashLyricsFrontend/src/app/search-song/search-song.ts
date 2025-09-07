@@ -24,16 +24,8 @@ export class SearchSong implements OnInit {
       this.route.queryParamMap.subscribe((params) => {
         this.name = params.get("name") || "";
         this.artist = params.get("artist") || "";
-        if(this.name || this.artist) {
-          console.log("La canción es: " + this.name);
-          console.log("Grupo: " + this.artist);
-          this.searchSong();
-        }
+        if(this.name || this.artist) this.searchSong();
       });
-  }
-
-  constructor() {
-    
   }
 
   searchSong() {
