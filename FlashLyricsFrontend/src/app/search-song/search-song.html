@@ -3,8 +3,7 @@
     <input type="text" id="name" [(ngModel)]="name" name="name"/>
     <label for="artist">Artist</label>
     <input type="text" id="artist" [(ngModel)]="artist" name="artist"/>
-    <button class="primary align-end" (click)="searchSong()">Find</button>
-
+    <button class="primary align-end" [routerLink]="['/search']" [queryParams]="{name: this.name, artist: this.artist}">Find</button>
 </div>
 @for (item of songs; track item.id) {
     <song-article [song]="item" [edit]="false"/>
