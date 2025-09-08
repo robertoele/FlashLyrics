@@ -3,6 +3,8 @@ package com.robertoele.FlashLyrics.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Arrays;
+
 @Entity
 @Table(name = "song")
 public class Song {

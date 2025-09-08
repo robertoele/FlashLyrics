@@ -34,4 +34,9 @@ public class SongService {
     public Song[] getByNameAndArtistOnline(String name, String artistName) {
         return client.requestSongsByNameAndArtist(name, artistName);
     }
+
+    public void saveOnline(Long id) {
+        Song newSong = getByIdOnline(id);
+        if(newSong != null) repository.save(newSong);
+    }
 }

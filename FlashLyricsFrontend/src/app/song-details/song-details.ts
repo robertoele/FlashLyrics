@@ -29,13 +29,8 @@ export class SongDetails {
   }
 
   saveSongCards() {
-    var songCards = this.song?.plainLyrics.split("\n") || [];
     if(typeof this.song !== 'undefined') {
-      var cards = songCards.filter(lyrics => lyrics.length !== 0).map(lyrics => new SongCardSent(this.song!!, lyrics));
-      this.client.post<SongCardData[]>(this.base_url + "/songs/" + this.songId, cards).subscribe(response => {
-        window.location.reload();
-      });
+      this.client.post<SongCardData[]>(this.base_url + "/songs/" + this.songId, "").subscribe(_ => { window.location.reload(); });
     }
   }
-  
 }

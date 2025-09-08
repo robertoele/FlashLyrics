@@ -8,6 +8,12 @@ public class SongCard {
 
     protected SongCard() {}
 
+    public SongCard(Song song, String lyrics, String translation) {
+        this.song = song;
+        this.lyrics = lyrics;
+        this.translation = translation;
+    }
+
     public SongCard(Long id, Song song, String lyrics, String translation) {
         this.id = id;
         this.song = song;
