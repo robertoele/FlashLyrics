@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Song } from '../entities/song';
@@ -30,7 +30,8 @@ export class SongDetails {
 
   saveSongCards() {
     if(typeof this.song !== 'undefined') {
-      this.client.post<SongCardData[]>(this.base_url + "/songs/" + this.songId, "").subscribe(_ => { window.location.reload(); });
+      const headers = new HttpHeaders({});
+      this.client.post(this.base_url + "/songs/" + this.songId, {}, { headers }).subscribe(_ => { window.location.reload(); });
     }
   }
 }
