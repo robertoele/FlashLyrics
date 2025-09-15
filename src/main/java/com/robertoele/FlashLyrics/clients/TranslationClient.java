@@ -11,6 +11,6 @@ public class TranslationClient {
 
     public Translation getTranslation(String sourceLan, String targetLan, String text) {
         TranslationRequest sentObject = new TranslationRequest(sourceLan, targetLan, text);
-        return template.postForObject("http://localhost:5000/translate", sentObject, Translation.class);
+        return template.postForObject("http://traduccion:5000/translate", sentObject, Translation.class);
     }
 }
