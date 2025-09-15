@@ -1,8 +1,9 @@
 services:
-  flashlyrics_app:
+  backend:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: backend
     ports:
       - "8080:8080"
     environment:
@@ -11,7 +12,17 @@ services:
       DB_PASSWORD: 7estamism0
     depends_on:
       datos:
-          condition: service_healthy
+        condition: service_healthy
+      traduccion:
+        condition: service_started
+  traduccion:
+    image: libretranslate/libretranslate:latest
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - lt-local:/home/libretranslate/.local
+    container_name: traduccion
   datos:
       image: mysql:latest
       ports:
@@ -27,10 +38,16 @@ services:
         test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
         timeout: 10s
         retries: 10
+      container_name: datos
   frontend:
+    depends_on:
+      backend:
+        condition: service_started
     build:
       context: ./FlashLyricsFrontend
       dockerfile: Dockerfile
     container_name: frontend
     ports:
       - "4020:4020"
+volumes:
+  lt-local:

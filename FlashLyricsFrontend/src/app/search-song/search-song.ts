@@ -29,7 +29,8 @@ export class SearchSong implements OnInit {
   }
 
   searchSong() {
-    this.client.get<Song[]>(this.baseUrl + "/songs?name=" + this.name + "&artist_name=" + this.artist).subscribe(songs => {
+    const request = this.baseUrl + "/songs?name=" + this.name + "&artist_name=" + this.artist;
+    this.client.get<Song[]>(request).subscribe(songs => {
       this.songs = songs;
     });
   }
