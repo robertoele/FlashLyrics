@@ -55,6 +55,12 @@ public class SongCardRest {
         return ResponseEntity.notFound().build();
     }
 
+    @PostMapping("/songs/update")
+    ResponseEntity<Iterable<SongCard>> updateCards(@RequestBody SongCard[] cards) {
+        songCardRepository.saveAll(Arrays.stream(cards).toList());
+        return ResponseEntity.noContent().build();
+    }
+
     private SongCard getSongCard(Song song, String verse) {
         return new SongCard(song, verse, translationService.translate("en", verse).translatedText);
     }
