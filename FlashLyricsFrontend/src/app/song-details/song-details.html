@@ -5,8 +5,12 @@
         <h1 class="lyrics">{{song?.plainLyrics}}</h1>
         <button class="tertiary floating-action" (click)="saveSongCards()">Save Song</button>
     } @else {
-        @for(card of this.cards; track card.id) {
-        <song-card [data]="card"/> 
+        <song-card [data]="this.cards[cardIndex]"/>
+        @if(this.cardIndex >= 1) { 
+            <button (click)="changeIndex(this.cardIndex - 1)" class="primary">Previous</button> 
+        }
+        @if(this.cardIndex + 1 < this.cards.length) {
+            <button (click)="changeIndex(this.cardIndex + 1)" class="primary">Next</button>
         }
     }
 } @loading {

@@ -17,6 +17,7 @@ export class SongDetails {
   songId = -1;
   song: Song | undefined;
   cards: SongCardData[] = [];
+  cardIndex = 0;
 
   constructor() {
     this.songId = parseInt(this.route.snapshot.params['id'], 10);
@@ -33,5 +34,11 @@ export class SongDetails {
       const headers = new HttpHeaders({});
       this.client.post(this.base_url + "/songs/" + this.songId, {}, { headers }).subscribe(_ => { window.location.reload(); });
     }
+  }
+
+  changeIndex(newIndex: number) {
+    console.log("Card index " + this.cardIndex);
+    console.log("length " + this.cards.length);
+    this.cardIndex = newIndex;
   }
 }

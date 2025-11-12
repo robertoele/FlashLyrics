@@ -1,4 +1,4 @@
-FROM openjdk:24-jdk
+FROM eclipse-temurin:24
 ARG JAR_FILE=build/libs/FlashLyrics-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} flashlyrics.jar
 EXPOSE 8080
