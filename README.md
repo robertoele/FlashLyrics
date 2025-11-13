@@ -10,6 +10,7 @@ This app allows you to download songs lyrics and convert them to flashcards with
   <img src="screenshots/learning.png/" width=80% height=80% />
 </div>
 
-# Docker Image
-https://hub.docker.com/r/robertoele/flashlyrics
+# Use
+Get the [compose yaml file](./compose.yaml) file and run the next command in your console:
+docker compose up
 
