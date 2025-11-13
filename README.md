@@ -11,6 +11,6 @@ This app allows you to download songs lyrics and convert them to flashcards with
 </div>
 
 # Use
-Get the [compose yaml file](./compose.yaml) file and run the next command in your console:
-docker compose up
+To use the program run "docker compose up" on the next file: [compose yaml file](./compose.yaml)
+
 
