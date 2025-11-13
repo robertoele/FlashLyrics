@@ -1,6 +1,8 @@
 services:
   backend:
-    image: robertoele/flashlyrics-backend:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: backend
     ports:
       - "8080:8080"
@@ -38,10 +40,12 @@ services:
         retries: 10
       container_name: datos
   frontend:
-    image: robertoele/flashlyrics-frontend:latest
     depends_on:
       backend:
         condition: service_started
+    build:
+      context: ./FlashLyricsFrontend
+      dockerfile: Dockerfile
     container_name: frontend
     ports:
       - "4020:4020"
