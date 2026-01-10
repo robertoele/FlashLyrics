@@ -5,7 +5,9 @@
         <h1 class="lyrics">{{song?.plainLyrics}}</h1>
         <button class="tertiary floating-action" (click)="saveSongCards()">Save Song</button>
     } @else {
-        <song-card [data]="this.cards[cardIndex]"/>
+        <div class="flip-card-center">
+            <song-card [data]="this.cards[cardIndex]"/>
+        </div>
         @if(this.cardIndex >= 1) { 
             <button (click)="changeIndex(this.cardIndex - 1)" class="primary">Previous</button> 
         }
@@ -14,8 +16,12 @@
         }
     }
 } @loading {
-    <img src="https://media.tenor.com/WX_LDjYUrMsAAAAi/loading.gif" />
+    <div class="align-image-center">
+        <img src="https://media.tenor.com/WX_LDjYUrMsAAAAi/loading.gif"/>
+    </div>
 } 
 @placeholder(minimum 1s) {
-    <img src="https://media.tenor.com/WX_LDjYUrMsAAAAi/loading.gif" />
+    <div class="align-image-center">
+        <img src="https://media.tenor.com/WX_LDjYUrMsAAAAi/loading.gif"/>
+    </div>
 }

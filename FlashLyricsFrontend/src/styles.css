@@ -70,9 +70,29 @@ button.tertiary:hover {
   float: inline-end;
 }
 
+div.align-image-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .floating-action {
     float: inline-end;
     position: fixed;
     bottom: 10px;
     right: 10px;
+}
+
+.flip-card-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+div.bottom-center {
+  position:absolute;
+  bottom: 0;
+  right: 45%;
 }
