@@ -25,7 +25,6 @@ export class SongEditing {
   }
 
   saveChanges() {
-    console.log("Me están pulsando");
     this.client.post<SongCardData[]>(this.base_url + "/songs/update", this.songCards).subscribe(response => {
       
     });

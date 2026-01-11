@@ -2,9 +2,11 @@ package com.robertoele.FlashLyrics.services;
 
 import com.robertoele.FlashLyrics.clients.SongClient;
 import com.robertoele.FlashLyrics.entities.Song;
+import com.robertoele.FlashLyrics.repositories.SongCardRepository;
 import com.robertoele.FlashLyrics.repositories.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +16,7 @@ public class SongService {
 
     @Autowired private SongClient client;
     @Autowired private SongRepository repository;
+    @Autowired private SongCardRepository cardRepository;
 
     public Song[] getByNameAndArtistLocal(String name, String artist) {
         return repository.getByNameAndArtistName(name, artist);
@@ -38,5 +41,11 @@ public class SongService {
     public void saveOnline(Long id) {
         Song newSong = getByIdOnline(id);
         if(newSong != null) repository.save(newSong);
+    }
+
+    @Transactional
+    public void delete(Song songToDelete) {
+        cardRepository.deleteAllBySongId(songToDelete.getId());
+        repository.delete(songToDelete);
     }
 }

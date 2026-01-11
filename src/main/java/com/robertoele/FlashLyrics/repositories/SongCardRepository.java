@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface SongCardRepository extends CrudRepository<SongCard, Long> {
 
     SongCard[] findAllBySongId(Long song);
+    void deleteAllBySongId(Long song);
 }
