@@ -23,4 +23,9 @@ export class Home {
       this.songs = songs;
     });
   }
+
+  deleteSong(song: Song) {
+    const index = this.songs.indexOf(song, 0);
+    if(index > -1) this.songs.splice(index, 1);
+  }
 }

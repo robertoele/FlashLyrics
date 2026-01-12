@@ -1,7 +1,7 @@
 <div class="songList">
     <div class="card-row title">Current Songs</div>
     @for(song of songs; track song.id) {
-        <song-article [song]="song" [edit]="true"/>
+        <song-article [song]="song" [edit]="true" (songDeleted)="deleteSong($event)"/>
     }
 </div>
 <button [routerLink]="['search']" class="tertiary floating-action">Add Song</button>

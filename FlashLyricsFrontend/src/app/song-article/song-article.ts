@@ -1,9 +1,10 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, input, output, Output } from '@angular/core';
 import { Song } from '../entities/song';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClient } from '@angular/common/http';
-import { log } from 'console';
+import { EventEmitter } from 'stream';
+
 @Component({
   selector: 'song-article',
   imports: [RouterModule, MatIconModule],
@@ -34,10 +35,11 @@ export class SongArticle {
   edit = input.required<Boolean>();
   client = inject(HttpClient);
   private base_url: string = "http://localhost:8080";
+  songDeleted = output<Song>();
 
   deleteSong(songId: number) {
     this.client.delete(this.base_url + "/songs/" + songId).subscribe(response => {
-        
+        this.songDeleted.emit(this.song());
     });
   }
 
