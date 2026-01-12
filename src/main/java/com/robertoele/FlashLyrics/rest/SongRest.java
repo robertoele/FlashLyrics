@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*", allowCredentials = "false")
 public class SongRest {
 
     @Autowired
@@ -31,7 +30,6 @@ public class SongRest {
 
     @GetMapping("/songs/{id}")
     public ResponseEntity<Song> findSong(@PathVariable Long id) {
-        System.out.println("hola find");
         if(id == null) return ResponseEntity.badRequest().build();
         Song foundSong = service.getByIdLocal(id).orElse(service.getByIdOnline(id));
         if(foundSong == null) return ResponseEntity.notFound().build();
@@ -40,7 +38,6 @@ public class SongRest {
 
     @DeleteMapping("/songs/{id}")
     public ResponseEntity<?> deleteSong(@PathVariable Long id) {
-        System.out.println("ahsdkjhaskd");
         Optional<Song> songToDelete = service.getByIdLocal(id);
         if(songToDelete.isPresent()) {
             service.delete(songToDelete.get());
